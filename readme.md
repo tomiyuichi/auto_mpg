@@ -22,8 +22,9 @@ pip install scikit-learn
 ### execute
 
 ```bash
-python build.py    # make trained model & scaler setting 
-python estimate.py # execute estimation using model above
+python build.py       # make trained model & scaler setting 
+python estimate.py    # execute estimation using model above
+python estimate_tk.py # most simple gui
 ```
 
 
