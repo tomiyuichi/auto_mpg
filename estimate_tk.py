@@ -1,3 +1,11 @@
+import sys
+class NullWriter:
+    def write(self, message): pass
+    def flush(self): pass
+
+sys.stdout = NullWriter()  # 標準出力を無効化
+sys.stderr = NullWriter()  # 標準エラー出力を無効化
+
 import joblib
 import numpy as np
 import tensorflow as tf
@@ -32,7 +40,10 @@ def predict():
         result_label.config(text=f"予測結果: {prediction}")        
 
     except Exception as e:
-        messagebox.showerror("エラー", f"入力エラーまたはモデルエラー: {e}")
+        import traceback
+        error_message = traceback.format_exc()
+        messagebox.showerror("エラー", f"詳細エラー: {error_message}")
+        # messagebox.showerror("エラー", f"入力エラーまたはモデルエラー: {e}")
 
 
 # Tkinter ウィンドウの作成
